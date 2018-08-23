@@ -1,0 +1,7 @@
+-(void)test{
+    DJIFlightController* fc = [DemoComponentHelper fetchFlightController];
+    [fc.simulator setFlyZoneLimitationEnabled:YES withCompletion:^(NSError * _Nullable error) {
+        <#code#>
+    }];
+
+}
