@@ -5,3 +5,40 @@
     }];
 
 }
+
+
+-(void) test1:(id)sender{
+    DJILightbridgeLink* lightbridgelink = DJISDKManager.product.airLink.lightbridgeLink;
+    [lightbridgelink setBandwidthAllocationForMainCamera:1 withCompletion:^(NSError * _Nullable error) {
+        if(error!=NULL){
+            NSLog(@"luce error 1:%@",error.description);
+        }else{
+        NSLog(@"luce setBandwidthAllocationForMainCamera to 1 ");
+        }
+    }];
+    
+    [lightbridgelink setBandwidthAllocationForLeftCamera:0.5 withCompletion:^(NSError * _Nullable error) {
+        if(error!=NULL){
+            NSLog(@"luce error 2:%@",error.description);
+        }else{
+        NSLog(@"luce setBandwidthAllocationForLeftCamera to 0.5 ");
+        }
+    }];
+    
+    [lightbridgelink getBandwidthAllocationForMainCameraWithCompletion:^(float percent, NSError * _Nullable error) {
+        if(error!=NULL){
+            NSLog(@"luce error 3:%@",error.description);
+        }else{
+        NSLog(@"luce getBandwidthAllocationForMainCameraWithCompletion:%f",percent);
+        }
+    }];
+    
+    [lightbridgelink getBandwidthAllocationForLeftCameraWithCompletion:^(float percent, NSError * _Nullable error) {
+        if(error!=NULL){
+            NSLog(@"luce error 4:%@",error.description);
+        }else{
+        NSLog(@"luce getBandwidthAllocationForLeftCameraWithCompletion:%f",percent);
+        }
+    }];
+}
+
