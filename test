@@ -42,3 +42,13 @@
     }];
 }
 
+//
+    DJIBattery* battery = [DemoComponentHelper fetchBattery];
+    [battery getCellVoltagesWithCompletion:^(NSArray<NSNumber *> * _Nullable cellVoltages, NSError * _Nullable error) {
+        ShowResult(@"luce: getCellVoltagesWithCompletion. %@", cellVoltages);
+    }];
+    
+    DJIFlightController* fc = [DemoComponentHelper fetchFlightController];
+    [fc getSerialNumberWithCompletion:^(NSString * _Nullable serialNumber, NSError * _Nullable error) {
+        ShowResult(@"luce: serialNumber %@", serialNumber);
+    }];
