@@ -52,3 +52,12 @@
     [fc getSerialNumberWithCompletion:^(NSString * _Nullable serialNumber, NSError * _Nullable error) {
         ShowResult(@"luce: serialNumber %@", serialNumber);
     }];
+    
+        DJIFlightControllerKey *serialnum = [DJIFlightControllerKey keyWithParam:DJIParamSerialNumber];
+    [keyManager getValueForKey:serialnum withCompletion:^(DJIKeyedValue * _Nullable value, NSError * _Nullable error) {
+        if(error == NULL){
+        NSLog(@"luce serialnum: %@",value);
+        }else{
+            NSLog(@"luce error: %@",error.description);
+        }
+    }];
