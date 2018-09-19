@@ -53,6 +53,7 @@
         ShowResult(@"luce: serialNumber %@", serialNumber);
     }];
     
+        DJIKeyManager *keyManager = [DJISDKManager keyManager];
         DJIFlightControllerKey *serialnum = [DJIFlightControllerKey keyWithParam:DJIParamSerialNumber];
     [keyManager getValueForKey:serialnum withCompletion:^(DJIKeyedValue * _Nullable value, NSError * _Nullable error) {
         if(error == NULL){
