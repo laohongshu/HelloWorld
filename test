@@ -62,3 +62,10 @@
             NSLog(@"luce error: %@",error.description);
         }
     }];
+    
+    
+    DJIRemoteController* rc = [DemoComponentHelper fetchRemoteController];
+    [rc getPairingStateWithCompletion:^(DJIRCPairingState state, NSError * _Nullable error) {
+        <#code#>
+    }]
+    
