@@ -69,3 +69,7 @@
         <#code#>
     }]
     
+guard let serialKey = DJIFlightControllerKey(param:DJIParamSerialNumber) else {return}  //luce
+        DJISDKManager.keyManager()?.getValueFor(serialKey, withCompletion: { (value, error) in
+            NSLog("luce serialKey is:\(value)")
+        })
