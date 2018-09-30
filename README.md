@@ -1,6 +1,0 @@
-# HelloWorld
-test
-
-
-
-Hello luce!
