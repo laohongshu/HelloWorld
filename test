@@ -120,3 +120,12 @@ guard let serialKey = DJIFlightControllerKey(param:DJIParamSerialNumber) else {r
                 NSLog("luce getBandwidthAllocationForHDMIVideoInputPort error:" + String(describing:error))
             }
         })
+@interface LuceTest () <DJIFlightControllerDelegate,DJIBaseProductDelegate>
+@end
+
+DJIBaseProduct* bp = [DemoComponentHelper fetchProduct];
+bp.delegate = self;
+
+-(void) product:(DJIBaseProduct *)product didUpdateDiagnosticsInformation:(NSArray *)info{
+    NSLog(@"luce Diagnostics:%@",info.description);
+}
