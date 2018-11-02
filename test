@@ -75,22 +75,18 @@ guard let serialKey = DJIFlightControllerKey(param:DJIParamSerialNumber) else {r
         })
 
         let lb = DJISDKManager.product()?.airLink?.lightbridgeLink;
-        lb?.getBandwidthAllocationForLBVideoInputPort(completion: { (lbband:Float,error:Error?) in
-            if error == nil{
-                NSLog("luce getBandwidthAllocationForLBVideoInputPort:" + String(describing: lbband))
-            }else{
-                NSLog("luce getBandwidthAllocationForLBVideoInputPort error:" + String(describing:error))
-            }
-        })
-        
-        lb?.getBandwidthAllocationForHDMIVideoInputPort(completion: { (hdmival:Float, error:Error?) in
-            if error == nil{
-                NSLog("luce getBandwidthAllocationForHDMIVideoInputPort:" + String(describing: hdmival))
-            }else{
-                NSLog("luce getBandwidthAllocationForHDMIVideoInputPort error:" + String(describing:error))
-            }
-        })
-
+        if lb?.canEXTVideoInputPortBeDisabled() == true{
+            lb?.setEXTVideoInputPortEnabled(true, withCompletion: { (error:Error?) in
+                if (error == nil){
+                    NSLog("luce setEXTVideoInputPortEnabled true")
+                }else{
+                    NSLog("luce setEXTVideoInputPortEnabled error:" + String(describing:error))
+                }
+            })
+        }else{
+            NSLog("luce canEXTVideoInputPortBeDisabled:" + String(describing: lb?.canEXTVideoInputPortBeDisabled()))
+        }
+    }
             let lb = DJISDKManager.product()?.airLink?.lightbridgeLink;
             lb?.setBandwidthAllocationForLBVideoInputPort(0.5, withCompletion: { (error:Error?) in
                 if error == nil{
