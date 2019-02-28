@@ -129,3 +129,5 @@ bp.delegate = self;
 -(void) product:(DJIBaseProduct *)product didUpdateDiagnosticsInformation:(NSArray *)info{
     NSLog(@"luce Diagnostics:%@",info.description);
 }
+
+rtmp://send3a.douyu.com/live/6514209rAgWhZFN7?wsSecret=7e02cf5faea1f8e7cf7d3f26ca94c63b&wsTime=5c77af19&wsSeek=off&wm=0&tw=0&roirecognition=0
